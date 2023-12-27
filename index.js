@@ -1,3 +1,5 @@
+
+
 (function() {
     const wheel = document.querySelector('.wheel');
     const startButton = document.querySelector('.button');

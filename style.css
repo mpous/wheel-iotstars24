@@ -16,6 +16,10 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-family: "Play", "Helvetica Neue", "Arial", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    color: #fff;
 }
 
 .wrapper {
@@ -24,13 +28,19 @@ html, body {
     overflow-y: auto;
     object-fit: cover;
     background-position:center;
-    background-image: url('./assets/bg.webp');
+    background-image: url('./assets/IoTStars-bg.webp');
 }
 
 .container {
     position: relative;
     max-width: 570px;
     margin: auto;
+}
+
+.iotstars-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
 }
 
 .wheel {
@@ -51,10 +61,30 @@ html, body {
 .btn-wrapper {
     margin-left: 20px;
     margin-top: 20px;
+    text-align: center;
+}
+
+.wheel-wrapper {
+  margin-left: 20px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.iotstars-wrapper {
+  display: block;
+  position: absolute;
+  margin-top: 550px;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.iotstars-wrapper h1{
+  color: #fff;
 }
 
 .button {
-    max-width: 75px;
+    max-width: 175px;
     padding: 8px 20px;
     width: 100%;
     border: none;
@@ -131,4 +161,73 @@ html, body {
     to {
       text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
     }
+}
+
+.form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#userInputForm {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* blockrain buttons style */
+
+.blockrain-btn {
+  position: relative;
+  display: inline-block;
+  background: #fe4918;
+  color: #ffffff;
+  text-decoration: none;
+  border: 2px solid #FFA500;
+  padding: 15px 30px;
+  font-size: 18px;
+  text-align: center;
+  cursor: default;
+}
+
+.blockrain-btn::before {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  border: 2px solid #ffffff;
+  border-top: none;
+  border-right: none;
+  transition: all 0.2s ease;
+}
+.blockrain-btn::after {
+  position: absolute;
+  content: "";
+  top: 0px;
+  left: 100%;
+  bottom: 0px;
+  right: 0px;
+  border: 2px solid #ffffff;
+  border-left: none;
+  border-bottom: none;
+  transition: all 0.2s ease;
+}
+
+.blockrain-btn:hover::before {
+  left: 5px;
+  bottom: -8px;
+  right: -8px;
+}
+.blockrain-btn:hover::after {
+  top: 5px;
+  bottom: -8px;
+  right: -8px;
 }
