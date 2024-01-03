@@ -8,7 +8,7 @@
     <meta name="robots" content="INDEX, FOLLOW" />
     <meta name="author" content="IoT Stars 2024" />
 
-    <title>IoT Stars 2024: Share and Give the Tools, Tactics, Habits and Routines of the IoT Stars</title>
+    <title>IoT Stars 2024: Share and Receive the Tools, Tactics, Habits and Routines of the IoT Stars</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="preload" href="./assets/IoTStars-bg.webp" as="image" />
@@ -28,22 +28,40 @@
 <body>
     
     
-    <!--
-        <div id="formOverlay" class="form-overlay">
-        <form id="userInputForm">
-            <label for="userInput">Enter your text:</label>
-            <input type="text" id="userInput" required>
-            <button type="submit">Submit</button>
+    <!-- Modal -->
+    <div id="iotstars-modal" class="modal">
+        <span onclick="closeModal()" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">&times;</span>
+        <h2>Your Tools, Tactics, Habits and Routines</h2>
+        <form id="myForm" onsubmit="submitForm(); return false;">
+            <!-- Your form fields go here -->
+            <label for="firstANDlast">Name</label>
+            <input type="text" id="firstANDlast" name="firstANDlast" placeholder="Enter your name" required>
+            <span id="nameError" class="error"></span>
+            <br>
+            <label for="Email">Email</label>
+            <input type="email" id="Email" name="Email" placeholder="Enter your e-mail" required>
+            <span id="emailError" class="error"></span>
+            <br>
+            <label for="Linkedin">Linkedin</label>
+            <input type="text" id="Linkedin" name="Linkedin" placeholder="Enter your Linkedin profile" required>
+            <span id="linkedinError" class="error"></span>
+            <br>
+            <label for="Routines">Your Tools, Tactics, Habits and Routines</label>
+            <textarea id="Routines" name="Routines" placeholder="Type your Tools, Tactics, Habits and Routines" rows="4" required></textarea>
+            <span id="routinesError" class="error"></span>
+            <br>
+            <input id="submitButtonForm" type="submit" value="Share to Receive from other IoT Stars">
         </form>
     </div>
-    -->
 
     <div class="wrapper">
         
         <div class="btn-wrapper">
             <h1>The Tools, Tactics, Habits and Routines of the IoT Stars</h1>   
             <p>
-                <button class='button'>I am an IoT Star 2024</button>
+                <!--<button class='buttonStart'>I am an IoT Star 2024</button>-->
+
+                <button class="button">I am an IoT Star</button>
             </p>
         </div>
         
@@ -54,7 +72,8 @@
                 <img class="marker" src="./assets/marker.webp" />
                 <div id="colorResult" class="glow"></div>
             </div>
-        </div>
+
+        </div> <!-- wheel container --> 
 
         <div class="iotstars-container">
 
@@ -82,13 +101,10 @@
                     </div>
                 </p>
     
-            </div>
-
-
-        </div> <!-- container -->
-
-    
+            </div>    
         
+        </div> <!-- iotstars container -->
+
     </div> <!-- wrapper -->
 
 
