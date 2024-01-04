@@ -3,10 +3,10 @@
 const wheel = document.querySelector('.wheel');
 const startButton = document.querySelector('.buttonStart');
 const starButton = document.querySelector('.button');
-//const submitButtonForm = document.querySelector('.submitButtonForm');
 const colorResult = document.getElementById('colorResult');
 const root = document.querySelector(":root");
 const modal = document.getElementById('iotstars-modal');
+
 let deg = 0;
 
 
@@ -74,13 +74,15 @@ function alertResult(actualDeg) {
         result = '#ffcc01';
     }
 
+    resultText = '<div id="result-modal" class="chat-overlay"><div class="chat-header" style="background-color:'+result+'"><span style="font-size: 14px;color:#FFF;margin-right:30px;">The Tools, Tactics, Habits and Routines of an IoT Star</span><span class="close-button" onclick="closeChatOverlay()" style="margin-left:10px;">&times;</span></div><div class="chat-content"><img src="https://media.licdn.com/dms/image/C4D03AQEm1Nyh4NoSVA/profile-displayphoto-shrink_100_100/0/1516304629303?e=1709769600&v=beta&t=5k1nA3difvNZ2Un1Ha3xkEjvUy5RE6f1PfMH0V-wLAo" alt="IoT Star" class="avatar"><p style="text-align:left;">My routine every year is to try to find a new mentor that can guide me to improve myself.<br><br>One of my Habits is to have lunch with interesting people to learn from each other meanwhile we enjoy a good meal.</p><input id="submitInterestForm" type="submit" value="Let us know if you would like to know this IoT Star!" onclick="closeChatOverlay()"></div>'
+
 
     // Displaying result
     colorResult.style.display = 'block';
     colorResult.style.color = result;
     colorResult.style.fontWeight = 'bold';
     colorResult.style.fontSize = '30px';
-    colorResult.innerHTML = '<div id="result-modal">Woohoooo!!!</div>'
+    colorResult.innerHTML = resultText;
     colorResult.style.position = 'absolute';
     colorResult.style.transform = 'translateX(-50%)';
     colorResult.style.left = '50%';
@@ -100,16 +102,38 @@ function closeModal() {
     modal.style.display = 'none';
 }
 
+function closeChatOverlay() {
+    document.getElementById('result-modal').style.display = 'none';
+}
+
 // Function to handle form submission
+
 function submitForm() {
+    isValid = false;
+    //isValid = validateForm();
+
+    isValid = true;
+
+    if (isValid)
+    {
+        const yourForm = document.getElementById('myForm');
+
+        const data = new FormData(yourForm);
+        const action = "https://script.google.com/macros/s/AKfycby_PMgg35rNlV-vFKqKDHpMgOp5mAD5aWgdnrbe2eaHvrkxcxZHgIQ2VLhobvR8_ztL/exec";
+  
+        // Close the modal after submission
+        closeModal();
+
+        fetch(action, {
+            method: 'POST',
+            body: data,
+        }).then(() => {
+            
+                // Perform any necessary form processing here
+                startButtonClicked();
+        })
+    }
     
-    //validateForm();
-
-    // Close the modal after submission
-    closeModal();
-
-    // Perform any necessary form processing here
-    startButtonClicked();
 }
 
 
@@ -122,7 +146,7 @@ function validateForm() {
     let isValid = true;
 
     // Basic email validation
-    const emailInput = document.getElementById('email');
+    const emailInput = document.getElementById('Email');
     const emailError = document.getElementById('emailError');
     if (!isValidEmail(emailInput.value)) {
         emailError.textContent = 'Invalid e-mail address';
@@ -130,7 +154,7 @@ function validateForm() {
     }
 
     // Basic LinkedIn URL validation
-    const linkedinInput = document.getElementById('linkedin');
+    const linkedinInput = document.getElementById('Linkedin');
     const linkedinError = document.getElementById('linkedinError');
     if (!isValidLinkedinUrl(linkedinInput.value)) {
         linkedinError.textContent = 'Invalid LinkedIn Profile URL';
@@ -138,10 +162,8 @@ function validateForm() {
     }
 
     // Additional form field validations go here
-
-    // Basic validation for the message textarea
-    const messageInput = document.getElementById('message');
-    const messageError = document.getElementById('messageError');
+    const messageInput = document.getElementById('Routines');
+    const messageError = document.getElementById('routinesError');
     if (!messageInput.value.trim()) {
         messageError.textContent = 'Message cannot be empty';
         isValid = false;
@@ -150,7 +172,7 @@ function validateForm() {
     if (isValid) {
         // Additional form processing logic goes here
 
-        alert('Form submitted successfully!');
+        //alert('Form submitted successfully!');
     }
 
     return isValid;
