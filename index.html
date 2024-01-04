@@ -23,6 +23,7 @@
 
         gtag('config', 'UA-57274846-1');
     </script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body>
@@ -31,8 +32,9 @@
     <!-- Modal -->
     <div id="iotstars-modal" class="modal">
         <span onclick="closeModal()" style="cursor: pointer; position: absolute; top: 10px; right: 10px;">&times;</span>
-        <h2>Your Tools, Tactics, Habits and Routines</h2>
+        <h2>Share Your Tools, Tactics, Habits and Routines</h2>
         <form id="myForm" onsubmit="submitForm(); return false;">
+
             <!-- Your form fields go here -->
             <label for="firstANDlast">Name</label>
             <input type="text" id="firstANDlast" name="firstANDlast" placeholder="Enter your name" required>
@@ -50,6 +52,8 @@
             <textarea id="Routines" name="Routines" placeholder="Type your Tools, Tactics, Habits and Routines" rows="4" required></textarea>
             <span id="routinesError" class="error"></span>
             <br>
+            <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+            <br>
             <input id="submitButtonForm" type="submit" value="Share to Receive from other IoT Stars">
         </form>
     </div>
@@ -57,10 +61,8 @@
     <div class="wrapper">
         
         <div class="btn-wrapper">
-            <h1>The Tools, Tactics, Habits and Routines of the IoT Stars</h1>   
+            <!--<h1>The Tools, Tactics, Habits and Routines of the IoT Stars</h1>-->
             <p>
-                <!--<button class='buttonStart'>I am an IoT Star 2024</button>-->
-
                 <button class="button">I am an IoT Star</button>
             </p>
         </div>
