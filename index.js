@@ -74,7 +74,13 @@ function alertResult(actualDeg) {
         result = '#ffcc01';
     }
 
-    resultText = '<div id="result-modal" class="chat-overlay"><div class="chat-header" style="background-color:'+result+'"><span style="font-size: 14px;color:#FFF;margin-right:30px;">The Tools, Tactics, Habits and Routines of an IoT Star</span><span class="close-button" onclick="closeChatOverlay()" style="margin-left:10px;">&times;</span></div><div class="chat-content"><img src="https://media.licdn.com/dms/image/C4D03AQEm1Nyh4NoSVA/profile-displayphoto-shrink_100_100/0/1516304629303?e=1709769600&v=beta&t=5k1nA3difvNZ2Un1Ha3xkEjvUy5RE6f1PfMH0V-wLAo" alt="IoT Star" class="avatar"><p style="text-align:left;">My routine every year is to try to find a new mentor that can guide me to improve myself.<br><br>One of my Habits is to have lunch with interesting people to learn from each other meanwhile we enjoy a good meal.</p><br><input id="submitInterestForm" type="submit" value="Let us know if you would like to meet this IoT Star!" onclick="closeChatOverlay()"></div>'
+
+    resultTextArray = [
+        '<div id="result-modal" class="chat-overlay"><div class="chat-header" style="background-color:'+result+'"><span style="font-size: 14px;color:#FFF;margin-right:30px;">The Tools, Tactics, Habits and Routines of an IoT Star</span><span class="close-button" onclick="closeChatOverlay()" style="margin-left:10px;">&times;</span></div><div class="chat-content"><img src="https://media.licdn.com/dms/image/C4D03AQEm1Nyh4NoSVA/profile-displayphoto-shrink_100_100/0/1516304629303?e=1709769600&v=beta&t=5k1nA3difvNZ2Un1Ha3xkEjvUy5RE6f1PfMH0V-wLAo" alt="IoT Star" class="avatar"><p style="text-align:left;">As a Tool I like to build IoT projects (using Raspberry Pi, Arduino or similar) for experimenting with IoT solutions myself.<br /><br />My routine is to actively seek out new mentors who can provide guidance, share experiences and contribute to my professional growth.</p><br><input id="submitInterestForm" type="submit" value="Let us know if you would like to meet this IoT Star!" onclick="closeChatOverlay()"></div>',
+        '<div id="result-modal" class="chat-overlay"><div class="chat-header" style="background-color:'+result+'"><span style="font-size: 14px;color:#FFF;margin-right:30px;">The Tools, Tactics, Habits and Routines of an IoT Star</span><span class="close-button" onclick="closeChatOverlay()" style="margin-left:10px;">&times;</span></div><div class="chat-content"><img src="https://media.licdn.com/dms/image/D5603AQGySvqt8DjJuA/profile-displayphoto-shrink_100_100/0/1679991852902?e=1712188800&v=beta&t=mzB1s5mubdDYpTDTxL0IBgCUojQRHcyMQy-LPsAl334" alt="IoT Star" class="avatar"><p style="text-align:left;">My habit is to stay updated with the latest IoT trends and technologies through continuous learning and professional development every year.<br /><br />My routine is to start every day reviewing current projects, identifying priorities and planning tasks to ensure efficient use of my time.</p><br><input id="submitInterestForm" type="submit" value="Let us know if you would like to meet this IoT Star!" onclick="closeChatOverlay()"></div>'
+    ];
+
+    resultText = getRandomHtml(resultTextArray);
 
 
     // Displaying result
@@ -91,6 +97,16 @@ function alertResult(actualDeg) {
     root.style.setProperty("--linear-shadow", result);
 
 }
+
+function getRandomHtml(htmlArray) 
+{
+    // Get a random index from the htmlArray
+    const randomIndex = Math.floor(Math.random() * htmlArray.length);
+
+    // Display the selected HTML on the page
+    return htmlArray[randomIndex];
+}
+
 
 // Function to open the modal
 function openModal() {
@@ -154,12 +170,14 @@ function validateForm() {
     }
 
     // Basic LinkedIn URL validation
+    /*
     const linkedinInput = document.getElementById('Linkedin');
     const linkedinError = document.getElementById('linkedinError');
     if (!isValidLinkedinUrl(linkedinInput.value)) {
         linkedinError.textContent = 'Invalid LinkedIn Profile URL';
         isValid = false;
     }
+
 
     // Additional form field validations go here
     const messageInput = document.getElementById('Routines');
@@ -168,6 +186,7 @@ function validateForm() {
         messageError.textContent = 'Message cannot be empty';
         isValid = false;
     }
+    */
 
     if (isValid) {
         // Additional form processing logic goes here
