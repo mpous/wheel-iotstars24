@@ -73,7 +73,7 @@ html, body {
 .iotstars-wrapper {
   display: block;
   position: absolute;
-  margin-top: 450px;
+  margin-top: 420px;
   align-content: center;
   text-align: center;
   width: 100%;
@@ -149,12 +149,15 @@ html, body {
     font-size: 80px;
     color: #fff;
     text-align: center;
+}
+
+.glow2 {
     -webkit-animation: glow 1s ease-in-out infinite alternate;
     -moz-animation: glow 1s ease-in-out infinite alternate;
     animation: glow 1s ease-in-out infinite alternate;
 }
   
-@keyframes glow {
+@keyframes glow2 {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
     }
@@ -238,7 +241,7 @@ html, body {
 .modal {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
@@ -315,9 +318,9 @@ input[type="submit"]:hover {
 
 .chat-overlay {
     position: fixed;
-    bottom: -100px;
-    right: 20px;
-    width: 440px;
+    bottom: -150px;
+    right: -170px;
+    width: 350px;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
