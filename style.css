@@ -318,9 +318,9 @@ input[type="submit"]:hover {
 
 .chat-overlay {
     position: fixed;
-    bottom: -150px;
+    bottom: -210px;
     right: -170px;
-    width: 350px;
+    width: 370px;
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
